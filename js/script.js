@@ -11,6 +11,10 @@ let attempts = 1
 inputNumber.focus()
 
 
+btnTry.addEventListener(`click`, compareNumber)
+btnReset.addEventListener(`click`, resetGame)
+document.addEventListener(`keydown`, enterKey)
+
 
 function compareNumber(event) {
     
@@ -43,8 +47,8 @@ function compareNumber(event) {
 
 function resetGame() {
     
-    screen2.classList.toggle("hide")
     screen1.classList.toggle("hide")
+    screen2.classList.toggle("hide")  
 
     attempts = 1
     randomNumber = Math.round(Math.random() * 10)
@@ -58,11 +62,6 @@ function enterKey(event) {
     }
 
 }
-
-btnTry.addEventListener(`click`, compareNumber)
-btnReset.addEventListener(`click`, resetGame)
-document.addEventListener(`keydown`, enterKey)
-
 
 
 
