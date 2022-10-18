@@ -4,7 +4,9 @@
 
 > Trilha Explorer
 
-Projeto construído do evento Next Level Week da Rocketseat.
+Jogo da adivinhação construído no stage 5 (Avançando no JavaScript) trilha Explorer da Rocketseat.
+
+
 
 [🔗 Clique aqui para acessar](https://filipesantos07.github.io/NLW-projeto-da-rocketseat/)
 
@@ -12,7 +14,7 @@ Projeto construído do evento Next Level Week da Rocketseat.
 
 - HTML
 - CSS
-- Git e Github
+- JavaScript
 
 ## 💛 Contato
 
