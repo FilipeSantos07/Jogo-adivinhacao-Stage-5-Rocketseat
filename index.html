@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ab8ffcf404.js" crossorigin="anonymous"></script> 
     <link rel="stylesheet" href="css/style.css">
     <title>Treinando JS</title>
 </head>
-<body>
-    <main>
+<body class="darkBody">
+    <i class="fa-solid fa-moon hide"></i>
+    <i class="fa-sharp fa-solid fa-sun"></i>
+
+    <main class="darkMain">
         <div class="screen1">
             <h1>Jogo da adivinhação</h1>
-            <p>Adivinhe o número entre 0 e 10</p>
+            <p class="pDark">Adivinhe o número entre 0 e 10</p>
             <form>
                 <input type="number" name="" id="inputNumber" minlength="1">
-                <button id="btnTry">Tentar</button>
+                <button class="btnTry">Tentar</button>
             </form>
         </div>
 
         <div class="screen2 hide">
             <h2>Acertou em 3 tentativas!</h2>
-            <button id="btnReset">Jogar novamente</button>
+            <button class="btnReset">Jogar novamente</button>
         </div>    
     </main>   
 
