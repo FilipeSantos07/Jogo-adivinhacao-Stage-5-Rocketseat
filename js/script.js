@@ -27,7 +27,9 @@ function compareNumber(event) {
     
     event.preventDefault()
 
-    if(inputNumber.value.length == 0) {
+    if(!inputNumber.value) {
+        alert('Digite algo por favor')
+    } else if(inputNumber.value.length == 0) {
 
         attempts--
 
