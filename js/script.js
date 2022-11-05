@@ -1,79 +1,94 @@
-const inputNumber = document.querySelector("#inputNumber")
-const btnTry = document.querySelector(".btnTry")
-const btnReset = document.querySelector(".btnReset")
-const moonIcon = document.querySelector(".icon-wrapper i:nth-child(1)")
-const sunIcon = document.querySelector(".icon-wrapper i:nth-child(2)")
 const screen1 = document.querySelector(".screen1")
 const screen2 = document.querySelector(".screen2")
-const message = document.querySelector(".screen2 h2")
+const btnTry = document.querySelector(".btnTry")
+const btnReset = document.querySelector(".btnReset")
+const inputNumber = document.querySelector("#inputNumber")
+const h2 = document.querySelector(".screen2 h2")
+const body = document.querySelector("body")
 const main = document.querySelector("main")
-const p = document.querySelector(".screen1 p")
-
-inputNumber.focus()
+const p = document.querySelector("p")
+const moonIcon = document.querySelector("i")
+const sunIcon = document.querySelector("i + i")
 
 let randomNumber = Math.round(Math.random() * 10)
 let attempts = 1
 
-btnTry.addEventListener(`click`, tryButton)
+inputNumber.focus()
+
+
+btnTry.addEventListener(`click`, compareNumber)
 btnReset.addEventListener(`click`, resetGame)
-moonIcon.addEventListener(`click`, mode)
-sunIcon.addEventListener(`click`, mode)
-window.addEventListener(`keydown`, resetGameByEnter)
+moonIcon.addEventListener(`click`, darkMode)
+sunIcon.addEventListener(`click`, lightMode)
+document.addEventListener(`keydown`, enterKey)
 
 
-function tryButton (event) {
-    event.preventDefault()
+function compareNumber(event) {
     
+    event.preventDefault()
+
     if(inputNumber.value.length == 0) {
-        inputNumber.value = ""
-        inputNumber.focus()
 
         attempts--
+
+    } else if(Number(inputNumber.value) < 0 || Number(inputNumber.value) > 10) {
+
+        alert(`Número inválido! Digite um número entre 0 e 10`)
+        attempts--
+
     }
+    else if(Number(inputNumber.value) == randomNumber) {
 
-    let userNumber = Number(inputNumber.value)
+        screen1.classList.toggle("hide")
+        screen2.classList.toggle("hide")
 
-    if(inputNumber.value < 0 || inputNumber.value > 10) {
-        inputNumber.value = ""
-        inputNumber.focus()
-        return alert(`Número inválido! Apenas números entre 0 e 10`)
-    }
+        h2.innerHTML = `Acertou em ${attempts} tentativas!`
 
-    if(userNumber == randomNumber) {
-        screen1.classList.add("hide")
-        screen2.classList.remove("hide")
-        message.innerHTML = `Acertou em ${attempts} tentativas!`
     }
 
     inputNumber.value = ""
     inputNumber.focus()
+
     attempts++
 }
 
 function resetGame() {
-    screen2.classList.add("hide")
-    screen1.classList.remove("hide")
     
-    inputNumber.value = ""
-    inputNumber.focus()
+    screen1.classList.toggle("hide")
+    screen2.classList.toggle("hide")  
 
-    randomNumber = Math.round(Math.random() * 10)
     attempts = 1
+    randomNumber = Math.round(Math.random() * 10)
+    inputNumber.focus()
 }
 
-function resetGameByEnter(event) {
-    if(event.key == "Enter" && screen1.classList.contains("hide")) {
+function enterKey(event) {
+
+    if(event.key == `Enter` && screen1.classList.contains("hide")) {
         resetGame()
     }
+
 }
 
-function mode() {
-    document.body.classList.toggle("darkBody")
+function lightMode() {
+    body.classList.toggle("darkBody")
     main.classList.toggle("darkMain")
     p.classList.toggle("pDark")
-    moonIcon.classList.toggle("hide")
     sunIcon.classList.toggle("hide")
+    moonIcon.classList.toggle("hide")
 
     inputNumber.focus()
 }
+
+function darkMode() {
+    body.classList.toggle("darkBody")
+    main.classList.toggle("darkMain")
+    p.classList.toggle("pDark")
+    sunIcon.classList.toggle("hide")
+    moonIcon.classList.toggle("hide")
+
+    inputNumber.focus()
+}
+
+
 
