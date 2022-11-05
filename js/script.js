@@ -76,4 +76,4 @@ function mode() {
 
     inputNumber.focus()
 }
-
+ 
